@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -14,9 +15,10 @@ import java.sql.ResultSet;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/pharmacie_db";
-    private static final String JDBC_USER = "root"; // ton utilisateur MySQL
-    private static final String JDBC_PASS = "";     // ton mot de passe MySQL
+    private static final String JDBC_USER = "root"; // Ton user MySQL
+    private static final String JDBC_PASS = "";     // Ton mot de passe MySQL
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -36,10 +38,29 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                // Authentification réussie
-                resp.getWriter().println("<h1 style='color:green;'>Connexion réussie : Bienvenue " + rs.getString("role") + " !</h1>");
+                String role = rs.getString("role");
+
+                // Créer une session
+                HttpSession session = req.getSession();
+                session.setAttribute("username", username);
+                session.setAttribute("role", role);
+
+                // Rediriger selon le rôle
+                switch (role) {
+                    case "ADMIN":
+                        resp.sendRedirect("admin-dashboard.jsp");
+                        break;
+                    case "PHARMACIEN":
+                        resp.sendRedirect("pharmacien-dashboard.jsp");
+                        break;
+                    case "ASSISTANT":
+                        resp.sendRedirect("assistant-dashboard.jsp");
+                        break;
+                    default:
+                        resp.getWriter().println("Rôle inconnu !");
+                        break;
+                }
             } else {
-                // Authentification échouée
                 resp.getWriter().println("<h1 style='color:red;'> Nom d'utilisateur ou mot de passe incorrect.</h1>");
             }
 
