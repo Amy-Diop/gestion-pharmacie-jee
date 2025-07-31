@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f9fc;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background: #34495e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.admin-header {
+    background: #2c3e50;
+}
+
+h1 {
+    margin: 0;
+}
+
+a.btn {
+    background: #2980b9;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: background 0.3s ease;
+}
+
+a.btn:hover {
+    background: #1f5f8b;
+}
+
+a.logout {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    padding: 15px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background: #2980b9;
+    color: white;
+}
+
+.table tr:hover {
+    background: #f1f1f1;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+.btn-danger {
+    background: #e74c3c;
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+.form {
+    width: 400px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgb(0 0 0 / 0.1);
+}
+
+.form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: #2980b9;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form button:hover {
+    background: #1f5f8b;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}

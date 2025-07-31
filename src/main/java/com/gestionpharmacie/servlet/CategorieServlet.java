@@ -1,141 +1,132 @@
 package com.gestionpharmacie.servlet;
 
+import com.gestionpharmacie.dao.CategorieDAO;
 import com.gestionpharmacie.model.Categorie;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/categories")
 public class CategorieServlet extends HttpServlet {
-
-    private final String jdbcURL = "jdbc:mysql://localhost:3306/pharmacie_db";
-    private final String jdbcUsername = "root";
-    private final String jdbcPassword = "";
+    private CategorieDAO categorieDAO;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    public void init() {
+        categorieDAO = new CategorieDAO();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) action = "list";
+
+        try {
+            switch (action) {
+                case "new":
+                    afficherFormulaireAjout(request, response);
+                    break;
+                case "edit":
+                    afficherFormulaireEdition(request, response);
+                    break;
+                case "delete":
+                    supprimerCategorie(request, response);
+                    break;
+                default:
+                    listerCategories(request, response);
+                    break;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new ServletException("Erreur lors du traitement de l'action GET", e);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
         try {
-            if (action == null) action = "list";
-
             switch (action) {
-                case "new":
-                    showNewForm(request, response);
-                    break;
                 case "insert":
-                    insertCategorie(request, response);
-                    break;
-                case "edit":
-                    showEditForm(request, response);
+                    insererCategorie(request, response);
                     break;
                 case "update":
-                    updateCategorie(request, response);
-                    break;
-                case "delete":
-                    deleteCategorie(request, response);
+                    mettreAJourCategorie(request, response);
                     break;
                 default:
-                    listCategories(request, response);
+                    response.sendRedirect("categories?action=list");
                     break;
             }
-        } catch (SQLException ex) {
-            throw new ServletException(ex);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new ServletException("Erreur lors du traitement de l'action POST", e);
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // Pour que les formulaires POST fonctionnent
-        doGet(request, response);
-    }
-
-    private void listCategories(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, ServletException, IOException {
-        List<Categorie> categories = new ArrayList<>();
-
-        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM categories")) {
-
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String nom = rs.getString("nom");
-                categories.add(new Categorie(id, nom));
-            }
+    private void listerCategories(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String search = request.getParameter("search");
+        List<Categorie> listeCategories;
+        
+        if (search != null && !search.trim().isEmpty()) {
+            listeCategories = categorieDAO.rechercherCategories(search.trim());
+        } else {
+            listeCategories = categorieDAO.listerCategoriesAvecNombreMedicaments();
         }
-        request.setAttribute("categories", categories);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("liste-categories.jsp");
-        dispatcher.forward(request, response);
+        
+        request.setAttribute("listeCategories", listeCategories);
+        request.setAttribute("search", search);
+        request.getRequestDispatcher("/categories/liste-categories.jsp").forward(request, response);
     }
 
-    private void insertCategorie(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        String nom = request.getParameter("nom");
-
-        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO categories (nom) VALUES (?)")) {
-            stmt.setString(1, nom);
-            stmt.executeUpdate();
-        }
-        response.sendRedirect("categories");
+    private void afficherFormulaireAjout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("categorie", null);
+        request.getRequestDispatcher("/categories/form-categorie.jsp").forward(request, response);
     }
 
-    private void showNewForm(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ajouter-categorie.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, ServletException, IOException {
+    private void afficherFormulaireEdition(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Categorie categorie = null;
-
-        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM categories WHERE id=?")) {
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                String nom = rs.getString("nom");
-                categorie = new Categorie(id, nom);
-            }
-        }
+        Categorie categorie = categorieDAO.getCategorieById(id);
         request.setAttribute("categorie", categorie);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("modifier-categorie.jsp");
-        dispatcher.forward(request, response);
+        request.getRequestDispatcher("/categories/form-categorie.jsp").forward(request, response);
     }
 
-    private void updateCategorie(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+    private void insererCategorie(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+        String nom = request.getParameter("nom");
+        String description = request.getParameter("description");
+
+        if (nom != null && !nom.trim().isEmpty()) {
+            Categorie categorie = new Categorie(nom, description);
+            categorieDAO.ajouterCategorie(categorie);
+            System.out.println("Catégorie ajoutée avec succès: " + nom);
+        }
+
+        response.sendRedirect("categories?action=list");
+    }
+
+    private void mettreAJourCategorie(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String nom = request.getParameter("nom");
+        String description = request.getParameter("description");
 
-        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-             PreparedStatement stmt = conn.prepareStatement("UPDATE categories SET nom=? WHERE id=?")) {
-            stmt.setString(1, nom);
-            stmt.setInt(2, id);
-            stmt.executeUpdate();
+        if (nom != null && !nom.trim().isEmpty()) {
+            Categorie categorie = new Categorie(id, nom, description, null);
+            categorieDAO.modifierCategorie(categorie);
+            System.out.println("Catégorie modifiée avec succès: ID=" + id + ", Nom=" + nom);
         }
-        response.sendRedirect("categories");
+
+        response.sendRedirect("categories?action=list");
     }
 
-    private void deleteCategorie(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
+    private void supprimerCategorie(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-
-        try (Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-             PreparedStatement stmt = conn.prepareStatement("DELETE FROM categories WHERE id=?")) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        }
-        response.sendRedirect("categories");
+        categorieDAO.supprimerCategorie(id);
+        System.out.println("Catégorie supprimée avec succès: ID=" + id);
+        response.sendRedirect("categories?action=list");
     }
 }

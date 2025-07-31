@@ -15,10 +15,11 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        HttpSession session = req.getSession(false); // Récupère la session existante
+
+        HttpSession session = req.getSession(false); // Récupérer session existante sans la créer
         if (session != null) {
-            session.invalidate(); // Déconnecte l’utilisateur
+            session.invalidate(); // Invalider la session (déconnexion)
         }
-        resp.sendRedirect("login.jsp"); // Retourne à la page login
+        resp.sendRedirect("login.jsp"); // Redirection vers login
     }
 }
