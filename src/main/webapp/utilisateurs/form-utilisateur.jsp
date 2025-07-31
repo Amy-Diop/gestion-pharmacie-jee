@@ -173,27 +173,27 @@
     <input type="hidden" name="id" value="<%= utilisateur.getId() %>"/>
     <% } %>
 
-    <label for="username">👤 Nom d'utilisateur</label>
+    <label for="username">Nom d'utilisateur</label>
     <input type="text" id="username" name="username" required
            value="<%= estEdition ? utilisateur.getUsername() : "" %>"/>
 
-    <label for="password">🔒 <%= estEdition ? "Nouveau mot de passe" : "Mot de passe" %></label>
+    <label for="password"><%= estEdition ? "Nouveau mot de passe" : "Mot de passe" %></label>
     <input type="password" id="password" name="password" <%= estEdition ? "" : "required" %>
            placeholder="<%= estEdition ? "Laissez vide pour garder l'ancien" : "" %>" />
 
-    <label for="role">🏥 Rôle</label>
+    <label for="role">Rôle</label>
     <select id="role" name="role" required>
       <option value="">-- Sélectionnez un rôle --</option>
-      <option value="ADMIN" <%= estEdition && "ADMIN".equals(utilisateur.getRole()) ? "selected" : "" %>>👨‍💼 Administrateur</option>
-      <option value="PHARMACIEN" <%= estEdition && "PHARMACIEN".equals(utilisateur.getRole()) ? "selected" : "" %>>👨‍⚕️ Pharmacien</option>
-      <option value="ASSISTANT" <%= estEdition && "ASSISTANT".equals(utilisateur.getRole()) ? "selected" : "" %>>👩‍⚕️ Assistant</option>
+      <option value="ADMIN" <%= estEdition && "ADMIN".equals(utilisateur.getRole()) ? "selected" : "" %>>Administrateur</option>
+      <option value="PHARMACIEN" <%= estEdition && "PHARMACIEN".equals(utilisateur.getRole()) ? "selected" : "" %>>Pharmacien</option>
+      <option value="ASSISTANT" <%= estEdition && "ASSISTANT".equals(utilisateur.getRole()) ? "selected" : "" %>>Assistant</option>
     </select>
 
-    <button type="submit" class="btn"><%= estEdition ? "✏️ Mettre à jour" : "➕ Ajouter" %></button>
+    <button type="submit" class="btn"><%= estEdition ? "Mettre à jour" : "Ajouter" %></button>
   </form>
 
   <a href="<%= contextPath %>/utilisateurs?action=list" class="back-link">
-    <i class="fa fa-arrow-left"></i> 🔙 Retour à la liste
+    <i class="fa fa-arrow-left"></i> Retour à la liste
   </a>
 </div>
 

@@ -232,7 +232,7 @@
         <button type="submit" class="btn-ajouter" style="margin: 0;"><i class="fa fa-search"></i> 🔍 Rechercher</button>
     </form>
     <a href="<%= contextPath %>/utilisateurs?action=new" class="btn-ajouter">
-        <i class="fa fa-user-plus"></i> ➕ Nouvel Utilisateur
+        <i class="fa fa-user"></i>  Nouvel Utilisateur
     </a>
     <table>
         <thead>

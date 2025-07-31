@@ -124,11 +124,11 @@
 </head>
 <body>
 <div class="container">
-    <h1><i class="fa fa-file-medical"></i> 📋 Liste des Ordonnances</h1>
+    <h1><i class="fa fa-file-medical"></i> Liste des Ordonnances</h1>
 
     <% if ("PHARMACIEN".equals(role) || "ADMIN".equals(role)) { %>
     <a href="ordonnances?action=new" class="btn-nouveau">
-        <i class="fa fa-plus"></i> ➕ Nouvelle Ordonnance
+        <i class="fa fa-plus"></i> Nouvelle Ordonnance
     </a>
     <% } %>
 
@@ -192,11 +192,11 @@
     </div>
 
     <% if ("ADMIN".equals(role)) { %>
-        <a class="back-link" href="admin-dashboard.jsp">🔙 Retour Dashboard Admin</a>
+        <a class="back-link" href="admin-dashboard.jsp">Retour Dashboard Admin</a>
     <% } else if ("PHARMACIEN".equals(role)) { %>
-        <a class="back-link" href="pharmacien-dashboard.jsp">🔙 Retour Dashboard Pharmacien</a>
+        <a class="back-link" href="pharmacien-dashboard.jsp">Retour Dashboard Pharmacien</a>
     <% } else { %>
-        <a class="back-link" href="assistant-dashboard.jsp">🔙 Retour Dashboard Assistant</a>
+        <a class="back-link" href="assistant-dashboard.jsp">Retour Dashboard Assistant</a>
     <% } %>
 </div>
 </body>

@@ -209,40 +209,40 @@
 
 <div class="sidebar">
     <h2><i class="fa-solid fa-user-nurse"></i> Assistant</h2>
-    <a href="#"><i class="fa fa-home"></i> 🏠 Dashboard</a>
-    <a href="liste-medicaments"><i class="fa-solid fa-capsules"></i> 💊 Médicaments</a>
-    <a href="ventes?action=list"><i class="fa-solid fa-cash-register"></i> 💳 Nouvelle Vente</a>
-    <a href="ventes?action=history"><i class="fa fa-history"></i> 📅 Historique</a>
-    <a href="alertes"><i class="fa fa-exclamation-triangle"></i> ⚠️ Alertes</a>
-    <a href="statistiques"><i class="fa fa-chart-bar"></i> 📊 Statistiques</a>
+    <a href="#"><i class="fa fa-home"></i> Dashboard</a>
+    <a href="liste-medicaments"><i class="fa-solid fa-capsules"></i> Médicaments</a>
+    <a href="ventes?action=list"><i class="fa-solid fa-cash-register"></i> Nouvelle Vente</a>
+    <a href="ventes?action=history"><i class="fa fa-history"></i> Historique</a>
+    <a href="alertes"><i class="fa fa-exclamation-triangle"></i> Alertes</a>
+    <a href="statistiques"><i class="fa fa-chart-bar"></i> Statistiques</a>
     <a href="logout" class="logout-btn" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');"><i class="fa fa-sign-out-alt"></i> Déconnexion</a>
 </div>
 
 <div class="main-content">
     <header>
-        <div class="dashboard-title" style="font-size: 1.8em; font-weight: bold; color: #229954; text-shadow: 0 2px 4px rgba(34, 153, 84, 0.2);">👩‍⚕️ Bienvenue, <%= username %></div>
+        <div class="dashboard-title" style="font-size: 1.8em; font-weight: bold; color: #229954; text-shadow: 0 2px 4px rgba(34, 153, 84, 0.2);">Bienvenue, <%= username %></div>
         <div style="color: #555; font-size: 1.2em; margin-top: 8px; padding: 8px 15px; background: rgba(34, 153, 84, 0.1); border-radius: 20px; display: inline-block;"><i class="fa fa-user-nurse" style="color: #27ae60;"></i> Rôle : Assistant</div>
     </header>
 
     <div class="stats">
         <div class="card">
             <i class="fa-solid fa-capsules"></i>
-            <h3>💊 120</h3>
+            <h3>120</h3>
             <p>Médicaments consultés</p>
         </div>
         <div class="card">
             <i class="fa-solid fa-cash-register"></i>
-            <h3>💳 62</h3>
+            <h3>62</h3>
             <p>Ventes enregistrées</p>
         </div>
         <div class="card">
             <i class="fa fa-history"></i>
-            <h3>📅 180</h3>
+            <h3>180</h3>
             <p>Historique des ventes</p>
         </div>
         <div class="card">
             <i class="fa fa-exclamation-triangle"></i>
-            <h3>⚠️ 3</h3>
+            <h3>3</h3>
             <p>Alertes en attente</p>
         </div>
     </div>

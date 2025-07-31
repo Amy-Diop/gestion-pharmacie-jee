@@ -209,51 +209,51 @@
 
 <div class="sidebar">
     <h2><i class="fa-solid fa-user-doctor"></i> Pharmacien</h2>
-    <a href="#"><i class="fa fa-home"></i> 🏠 Dashboard</a>
-    <a href="liste-medicaments"><i class="fa-solid fa-capsules"></i> 💊 Médicaments</a>
-    <a href="ventes?action=list"><i class="fa-solid fa-cash-register"></i> 💰 Ventes</a>
-    <a href="ordonnances"><i class="fa-solid fa-prescription"></i> 📄 Ordonnances</a>
-    <a href="alertes"><i class="fa fa-exclamation-triangle"></i> ⚠️ Alertes Stock</a>
-    <a href="peremption"><i class="fa fa-calendar-times"></i> 📅 Péremptions</a>
-    <a href="statistiques"><i class="fa fa-chart-bar"></i> 📊 Statistiques</a>
+    <a href="#"><i class="fa fa-home"></i> Dashboard</a>
+    <a href="liste-medicaments"><i class="fa-solid fa-capsules"></i> Médicaments</a>
+    <a href="ventes?action=list"><i class="fa-solid fa-cash-register"></i> Ventes</a>
+    <a href="ordonnances"><i class="fa-solid fa-prescription"></i> Ordonnances</a>
+    <a href="alertes"><i class="fa fa-exclamation-triangle"></i> Alertes Stock</a>
+    <a href="peremption"><i class="fa fa-calendar-times"></i> Péremptions</a>
+    <a href="statistiques"><i class="fa fa-chart-bar"></i> Statistiques</a>
     <a href="logout" class="logout-btn" onclick="return confirm('Êtes-vous sûr de vouloir vous déconnecter ?');"><i class="fa fa-sign-out-alt"></i> Déconnexion</a>
 </div>
 
 <div class="main-content">
     <header>
-        <div class="dashboard-title" style="font-size: 1.8em; font-weight: bold; color: #0d7377; text-shadow: 0 2px 4px rgba(13, 115, 119, 0.2);">👨‍⚕️ Bienvenue, <%= username %></div>
+        <div class="dashboard-title" style="font-size: 1.8em; font-weight: bold; color: #0d7377; text-shadow: 0 2px 4px rgba(13, 115, 119, 0.2);">Bienvenue, <%= username %></div>
         <div style="color: #555; font-size: 1.2em; margin-top: 8px; padding: 8px 15px; background: rgba(13, 115, 119, 0.1); border-radius: 20px; display: inline-block;"><i class="fa fa-user-nurse" style="color: #14a085;"></i> Rôle : Pharmacien</div>
     </header>
 
     <div class="stats">
         <div class="card">
             <i class="fa-solid fa-capsules"></i>
-            <h3>💊 132</h3>
+            <h3>132</h3>
             <p>Médicaments en stock</p>
         </div>
         <div class="card">
             <i class="fa-solid fa-cash-register"></i>
-            <h3>💰 78</h3>
+            <h3>78</h3>
             <p>Ventes aujourd'hui</p>
         </div>
         <div class="card">
             <i class="fa fa-exclamation-triangle"></i>
-            <h3>⚠️ 5</h3>
+            <h3>5</h3>
             <p>Alertes stock faible</p>
         </div>
         <div class="card">
             <i class="fa fa-calendar-times"></i>
-            <h3>📅 12</h3>
+            <h3>12</h3>
             <p>Expiration < 30j</p>
         </div>
         <div class="card">
             <i class="fa-solid fa-prescription"></i>
-            <h3>📄 23</h3>
+            <h3>23</h3>
             <p>Ordonnances traitées</p>
         </div>
         <div class="card">
             <i class="fa fa-chart-line"></i>
-            <h3>📈 +12%</h3>
+            <h3>+12%</h3>
             <p>Progression mensuelle</p>
         </div>
     </div>

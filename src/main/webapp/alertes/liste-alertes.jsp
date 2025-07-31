@@ -106,7 +106,7 @@
 </head>
 <body>
 <div class="container">
-    <h1><i class="fa fa-exclamation-triangle"></i> ⚠️ Alertes Stock</h1>
+    <h1><i class="fa fa-exclamation-triangle"></i> Alertes Stock</h1>
     
     <div class="alert-info">
         <strong>Information :</strong> Cette page affiche les médicaments avec un stock faible ou en rupture nécessitant un réapprovisionnement.
@@ -179,11 +179,11 @@
     </div>
 
     <% if ("ADMIN".equals(role)) { %>
-        <a class="back-link" href="admin-dashboard.jsp">🔙 Retour Dashboard Admin</a>
+        <a class="back-link" href="admin-dashboard.jsp">Retour Dashboard Admin</a>
     <% } else if ("PHARMACIEN".equals(role)) { %>
-        <a class="back-link" href="pharmacien-dashboard.jsp">🔙 Retour Dashboard Pharmacien</a>
+        <a class="back-link" href="pharmacien-dashboard.jsp">Retour Dashboard Pharmacien</a>
     <% } else { %>
-        <a class="back-link" href="assistant-dashboard.jsp">🔙 Retour Dashboard Assistant</a>
+        <a class="back-link" href="assistant-dashboard.jsp">Retour Dashboard Assistant</a>
     <% } %>
 </div>
 </body>

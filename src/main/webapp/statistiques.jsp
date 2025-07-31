@@ -181,83 +181,83 @@
 </head>
 <body>
 <div class="container">
-    <h1><i class="fa fa-chart-bar"></i> 📊 Statistiques de la Pharmacie</h1>
+    <h1><i class="fa fa-chart-bar"></i> Statistiques de la Pharmacie</h1>
 
     <div class="stats-grid">
         <div class="stat-card">
             <i class="fa-solid fa-capsules"></i>
-            <h3>💊 <%= nombreMedicaments %></h3>
+            <h3><%= nombreMedicaments %></h3>
             <p>Médicaments en stock</p>
         </div>
         <div class="stat-card">
             <i class="fa-solid fa-cash-register"></i>
-            <h3>💳 <%= nombreVentes %></h3>
+            <h3><%= nombreVentes %></h3>
             <p>Ventes réalisées</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-tags"></i>
-            <h3>🏷️ <%= nombreCategories %></h3>
+            <h3><%= nombreCategories %></h3>
             <p>Catégories de médicaments</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-exclamation-triangle"></i>
-            <h3>⚠️ <%= nombreAlertes %></h3>
+            <h3><%= nombreAlertes %></h3>
             <p>Alertes stock faible</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-times-circle"></i>
-            <h3>🚫 <%= medicamentsEnRupture %></h3>
+            <h3><%= medicamentsEnRupture %></h3>
             <p>Médicaments en rupture</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-calendar-times"></i>
-            <h3>📅 <%= medicamentsPerimes %></h3>
+            <h3><%= medicamentsPerimes %></h3>
             <p>Médicaments périmés</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-money-bill-wave"></i>
-            <h3>💰 <%= String.format("%.0f", chiffreAffaires) %></h3>
+            <h3><%= String.format("%.0f", chiffreAffaires) %></h3>
             <p>CA Total (FCFA)</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-chart-line"></i>
-            <h3>📈 <%= String.format("%.0f", chiffreAffairesHebdo) %></h3>
+            <h3><%= String.format("%.0f", chiffreAffairesHebdo) %></h3>
             <p>CA 7 derniers jours (FCFA)</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-calendar-month"></i>
-            <h3>📆 <%= String.format("%.0f", chiffreAffairesMensuel) %></h3>
+            <h3><%= String.format("%.0f", chiffreAffairesMensuel) %></h3>
             <p>CA 30 derniers jours (FCFA)</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-users"></i>
-            <h3>👥 <%= nombreUtilisateurs %></h3>
+            <h3><%= nombreUtilisateurs %></h3>
             <p>Utilisateurs du système</p>
         </div>
         <div class="stat-card">
             <i class="fa fa-truck"></i>
-            <h3>🚛 <%= nombreFournisseurs %></h3>
+            <h3><%= nombreFournisseurs %></h3>
             <p>Fournisseurs partenaires</p>
         </div>
     </div>
 
     <div class="charts-section">
         <div class="chart-container">
-            <div class="chart-title">📈 Chiffre d'Affaires par Jour (7 derniers jours)</div>
+            <div class="chart-title">Chiffre d'Affaires par Jour (7 derniers jours)</div>
             <canvas id="ventesChart"></canvas>
         </div>
         <div class="chart-container">
-            <div class="chart-title">🏷️ Médicaments par Catégorie (Top 5)</div>
+            <div class="chart-title">Médicaments par Catégorie (Top 5)</div>
             <canvas id="categoriesChart"></canvas>
         </div>
     </div>
 
     <% if ("ADMIN".equals(role)) { %>
-        <a class="back-link" href="admin-dashboard.jsp">🔙 Retour Dashboard Admin</a>
+        <a class="back-link" href="admin-dashboard.jsp">Retour Dashboard Admin</a>
     <% } else if ("PHARMACIEN".equals(role)) { %>
-        <a class="back-link" href="pharmacien-dashboard.jsp">🔙 Retour Dashboard Pharmacien</a>
+        <a class="back-link" href="pharmacien-dashboard.jsp">Retour Dashboard Pharmacien</a>
     <% } else { %>
-        <a class="back-link" href="assistant-dashboard.jsp">🔙 Retour Dashboard Assistant</a>
+        <a class="back-link" href="assistant-dashboard.jsp">Retour Dashboard Assistant</a>
     <% } %>
 </div>
 

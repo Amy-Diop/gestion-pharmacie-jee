@@ -229,7 +229,7 @@
             <div class="category-icon">
                 <i class="fa-solid <%= icones[iconIndex % icones.length] %>"></i>
             </div>
-            <div class="category-name"><%= emojis[iconIndex % emojis.length] %> <%= c.getNom() %></div>
+            <div class="category-name"><%= c.getNom() %></div>
             <div class="category-count"><%= c.getNombreMedicaments() %> médicaments</div>
             <% if (c.getDescription() != null && !c.getDescription().trim().isEmpty()) { %>
             <div style="color: #666; font-size: 0.9em; margin: 10px 0; font-style: italic;"><%= c.getDescription() %></div>
@@ -254,7 +254,7 @@
     </div>
     
     <a class="btn-retour" href="<%= request.getContextPath() %>/admin-dashboard.jsp">
-        <i class="fa-solid fa-arrow-left"></i> 🔙 Retour au Dashboard
+        <i class="fa-solid fa-arrow-left"></i> Retour au Dashboard
     </a>
 </div>
 </body>

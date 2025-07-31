@@ -119,7 +119,7 @@
 </head>
 <body>
 <div class="container">
-    <h1><i class="fa fa-cash-register"></i> 💳 Nouvelle Vente</h1>
+    <h1><i class="fa fa-cash-register"></i> Nouvelle Vente</h1>
 
     <form method="post" action="ventes?action=create" id="venteForm">
         <div class="form-group">
@@ -198,11 +198,11 @@
     </form>
 
     <% if ("ADMIN".equals(role)) { %>
-        <a class="back-link" href="admin-dashboard.jsp">🔙 Retour Dashboard Admin</a>
+        <a class="back-link" href="admin-dashboard.jsp">Retour Dashboard Admin</a>
     <% } else if ("PHARMACIEN".equals(role)) { %>
-        <a class="back-link" href="pharmacien-dashboard.jsp">🔙 Retour Dashboard Pharmacien</a>
+        <a class="back-link" href="pharmacien-dashboard.jsp">Retour Dashboard Pharmacien</a>
     <% } else { %>
-        <a class="back-link" href="assistant-dashboard.jsp">🔙 Retour Dashboard Assistant</a>
+        <a class="back-link" href="assistant-dashboard.jsp">Retour Dashboard Assistant</a>
     <% } %>
 </div>
 

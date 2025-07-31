@@ -114,7 +114,7 @@
 </head>
 <body>
 <div class="container">
-    <h2>✏️ Modifier Médicament</h2>
+    <h2>Modifier Médicament</h2>
 
     <% if (medicament != null) { %>
     <form action="modifier-medicament" method="post">
@@ -122,39 +122,39 @@
 
         <div class="form-row">
             <div class="form-group">
-                <label for="nom">💊 Nom du Médicament *</label>
+                <label for="nom">Nom du Médicament *</label>
                 <input type="text" id="nom" name="nom" required value="<%= medicament.getNom() %>"/>
             </div>
             <div class="form-group">
-                <label for="prix">💰 Prix (FCFA) *</label>
+                <label for="prix">Prix (FCFA) *</label>
                 <input type="number" id="prix" name="prix" step="0.01" required value="<%= medicament.getPrix() %>"/>
             </div>
         </div>
 
         <div class="form-group full-width">
-            <label for="description">📝 Description</label>
+            <label for="description">Description</label>
             <textarea id="description" name="description"><%= medicament.getDescription() != null ? medicament.getDescription() : "" %></textarea>
         </div>
 
         <div class="form-row">
             <div class="form-group">
-                <label for="stock">📦 Stock *</label>
+                <label for="stock">Stock *</label>
                 <input type="number" id="stock" name="stock" required value="<%= medicament.getStock() %>"/>
             </div>
             <div class="form-group">
-                <label for="seuilAlerte">⚠️ Seuil d'Alerte *</label>
+                <label for="seuilAlerte">Seuil d'Alerte *</label>
                 <input type="number" id="seuilAlerte" name="seuilAlerte" required value="<%= medicament.getSeuilAlerte() %>"/>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group">
-                <label for="dateExpiration">📅 Date d'Expiration</label>
+                <label for="dateExpiration">Date d'Expiration</label>
                 <input type="date" id="dateExpiration" name="dateExpiration" 
                        value="<%= medicament.getDateExpiration() != null ? dateFormat.format(medicament.getDateExpiration()) : "" %>"/>
             </div>
             <div class="form-group">
-                <label for="categorieId">🏷️ Catégorie</label>
+                <label for="categorieId">Catégorie</label>
                 <select id="categorieId" name="categorieId">
                     <option value="">Sélectionner une catégorie</option>
                     <% if (categories != null) {
@@ -168,7 +168,7 @@
         </div>
 
         <div class="form-group">
-            <label for="fournisseurId">🚛 Fournisseur</label>
+            <label for="fournisseurId">Fournisseur</label>
             <select id="fournisseurId" name="fournisseurId">
                 <option value="">Sélectionner un fournisseur</option>
                 <% if (fournisseurs != null) {
@@ -180,18 +180,18 @@
             </select>
         </div>
 
-        <button type="submit" class="btn">✏️ Mettre à jour le Médicament</button>
+        <button type="submit" class="btn">Mettre à jour le Médicament</button>
     </form>
     <% } else { %>
     <p style="text-align: center; color: #dc3545;">Médicament non trouvé.</p>
     <% } %>
 
     <% if ("ADMIN".equals(role)) { %>
-        <a class="back-link" href="admin-dashboard.jsp">🔙 Retour Dashboard Admin</a>
+        <a class="back-link" href="admin-dashboard.jsp">Retour Dashboard Admin</a>
     <% } else if ("PHARMACIEN".equals(role)) { %>
-        <a class="back-link" href="pharmacien-dashboard.jsp">🔙 Retour Dashboard Pharmacien</a>
+        <a class="back-link" href="pharmacien-dashboard.jsp">Retour Dashboard Pharmacien</a>
     <% } else { %>
-        <a class="back-link" href="assistant-dashboard.jsp">🔙 Retour Dashboard Assistant</a>
+        <a class="back-link" href="assistant-dashboard.jsp">Retour Dashboard Assistant</a>
     <% } %>
 </div>
 </body>

@@ -149,7 +149,7 @@
 <div class="container">
     <h2>
         <i class="fa <%= estEdition ? "fa-edit" : "fa-plus" %>"></i>
-        <%= estEdition ? "✏️ Modifier" : "➕ Ajouter" %> une Catégorie
+        <%= estEdition ? "Modifier" : "Ajouter" %> une Catégorie
     </h2>
 
     <form action="<%= contextPath %>/categories?action=<%= action %>" method="post">
@@ -157,22 +157,22 @@
         <input type="hidden" name="id" value="<%= categorie.getId() %>"/>
         <% } %>
 
-        <label for="nom">🏷️ Nom de la catégorie *</label>
+        <label for="nom">Nom de la catégorie *</label>
         <input type="text" id="nom" name="nom" required
                value="<%= estEdition ? categorie.getNom() : "" %>"
                placeholder="Ex: Antibiotiques, Antalgiques..."/>
 
-        <label for="description">📝 Description</label>
+        <label for="description">Description</label>
         <textarea id="description" name="description" 
                   placeholder="Description de la catégorie (optionnel)..."><%= estEdition && categorie.getDescription() != null ? categorie.getDescription() : "" %></textarea>
 
         <button type="submit" class="btn">
-            <%= estEdition ? "✏️ Mettre à jour" : "➕ Ajouter" %>
+            <%= estEdition ? "Mettre à jour" : "Ajouter" %>
         </button>
     </form>
 
     <a href="<%= contextPath %>/categories?action=list" class="back-link">
-        <i class="fa fa-arrow-left"></i> 🔙 Retour à la liste
+        <i class="fa fa-arrow-left"></i> Retour à la liste
     </a>
 </div>
 </body>

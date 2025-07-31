@@ -129,7 +129,7 @@
 <div class="container">
     <h2>
         <i class="fa <%= estEdition ? "fa-edit" : "fa-plus" %>"></i>
-        <%= estEdition ? "✏️ Modifier" : "➕ Nouveau" %> Médicament
+        <%= estEdition ? " Modifier" : " Nouveau" %> Médicament
     </h2>
 
     <form action="<%= contextPath %>/medicaments?action=<%= action %>" method="post">
@@ -141,24 +141,24 @@
         <div class="form-section">
             <div class="section-title">
                 <i class="fa-solid fa-capsules"></i>
-                💊 Informations Générales
+                 Informations Générales
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="nom">🏷️ Nom du Médicament *</label>
+                    <label for="nom">🏷 Nom du Médicament *</label>
                     <input type="text" id="nom" name="nom" required
                            value="<%= estEdition ? medicament.getNom() : "" %>"
                            placeholder="Nom du médicament"/>
                 </div>
                 <div class="form-group">
-                    <label for="prix">💰 Prix (FCFA) *</label>
+                    <label for="prix"> Prix (FCFA) *</label>
                     <input type="number" id="prix" name="prix" step="0.01" required
                            value="<%= estEdition ? medicament.getPrix() : "" %>"
                            placeholder="Prix en FCFA"/>
                 </div>
             </div>
             <div class="form-group full-width">
-                <label for="description">📝 Description</label>
+                <label for="description"> Description</label>
                 <textarea id="description" name="description" placeholder="Description du médicament..."><%= estEdition && medicament.getDescription() != null ? medicament.getDescription() : "" %></textarea>
             </div>
         </div>
@@ -171,13 +171,13 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="stock">📦 Stock Actuel *</label>
+                    <label for="stock"> Stock Actuel *</label>
                     <input type="number" id="stock" name="stock" required
                            value="<%= estEdition ? medicament.getStock() : "" %>"
                            placeholder="Quantité en stock"/>
                 </div>
                 <div class="form-group">
-                    <label for="seuilAlerte">⚠️ Seuil d'Alerte *</label>
+                    <label for="seuilAlerte"> Seuil d'Alerte *</label>
                     <input type="number" id="seuilAlerte" name="seuilAlerte" required
                            value="<%= estEdition ? medicament.getSeuilAlerte() : "10" %>"
                            placeholder="Seuil d'alerte"/>
@@ -198,7 +198,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="categorieId">🏷️ Catégorie</label>
+                    <label for="categorieId">Catégorie</label>
                     <select id="categorieId" name="categorieId">
                         <option value="">Sélectionner une catégorie</option>
                         <% if (categories != null) {
@@ -210,7 +210,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="fournisseurId">🚛 Fournisseur</label>
+                    <label for="fournisseurId">Fournisseur</label>
                     <select id="fournisseurId" name="fournisseurId">
                         <option value="">Sélectionner un fournisseur</option>
                         <% if (fournisseurs != null) {
@@ -225,12 +225,12 @@
         </div>
 
         <button type="submit" class="btn">
-            <%= estEdition ? "✏️ Mettre à jour" : "➕ Ajouter" %> le Médicament
+            <%= estEdition ? "Mettre à jour" : " Ajouter" %> le Médicament
         </button>
     </form>
 
     <a href="<%= contextPath %>/medicaments?action=list" class="back-link">
-        🔙 Retour à la liste
+        Retour à la liste
     </a>
 </div>
 </body>

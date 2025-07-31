@@ -218,12 +218,12 @@
 </head>
 <body>
 <div class="container">
-    <h1><i class="fa fa-pills"></i> 💊 Liste des Médicaments</h1>
+    <h1><i class="fa fa-pills"></i> Liste des Médicaments</h1>
     
     <div class="toolbar">
         <div class="search-container">
             <form method="get" action="liste-medicaments" class="search-form">
-                <input type="text" name="search" placeholder="🔍 Rechercher un médicament..." 
+                <input type="text" name="search" placeholder="Rechercher un médicament..." 
                        value="<%= request.getParameter("search") != null ? request.getParameter("search") : "" %>" 
                        class="search-input">
                 <button type="submit" class="search-btn">
@@ -238,7 +238,7 @@
         </div>
         <% if ("ADMIN".equals(role)) { %>
         <a href="ajouter-medicament" class="btn-nouveau">
-            <i class="fa fa-plus"></i> ➕ Ajouter Nouveau Médicament
+            <i class="fa fa"></i> Ajouter Nouveau Médicament
         </a>
         <% } %>
     </div>
@@ -319,20 +319,20 @@
                     </td>
                     <td style="text-align: center;">
                         <span style="background: <%= med.isActif() ? "#28a745" : "#dc3545" %>; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.8em;">
-                            <%= med.isActif() ? "✅ Oui" : "❌ Non" %>
+                            <%= med.isActif() ? "Oui" : "Non" %>
                         </span>
                     </td>
                     <% if ("ADMIN".equals(role) || "PHARMACIEN".equals(role)) { %>
                     <td>
                         <div class="actions">
                             <a href="modifier-medicament?id=<%= med.getId() %>" class="btn-action btn-modifier">
-                                ✏️ Modifier
+                                Modifier
                             </a>
                             <% if ("ADMIN".equals(role)) { %>
                             <a href="supprimer-medicament?id=<%= med.getId() %>" 
                                class="btn-action btn-supprimer"
                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce médicament ?');">
-                                🗑️ Supprimer
+                                Supprimer
                             </a>
                             <% } %>
                         </div>
@@ -397,11 +397,11 @@
     </div>
 
     <% if ("ADMIN".equals(role)) { %>
-        <a class="back-link" href="admin-dashboard.jsp">🔙 Retour Dashboard Admin</a>
+        <a class="back-link" href="admin-dashboard.jsp">Retour Dashboard Admin</a>
     <% } else if ("PHARMACIEN".equals(role)) { %>
-        <a class="back-link" href="pharmacien-dashboard.jsp">🔙 Retour Dashboard Pharmacien</a>
+        <a class="back-link" href="pharmacien-dashboard.jsp">Retour Dashboard Pharmacien</a>
     <% } else { %>
-        <a class="back-link" href="assistant-dashboard.jsp">🔙 Retour Dashboard Assistant</a>
+        <a class="back-link" href="assistant-dashboard.jsp">Retour Dashboard Assistant</a>
     <% } %>
 </div>
 </body>

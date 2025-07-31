@@ -234,7 +234,7 @@
 <div class="main-content">
   <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
     <div style="text-align: left;">
-      <div class="dashboard-title" style="font-size: 1.8em; font-weight: bold; color: #1e8449; text-shadow: 0 2px 4px rgba(30, 132, 73, 0.2);">🏥 Bienvenue, <%= username %></div>
+      <div class="dashboard-title" style="font-size: 1.8em; font-weight: bold; color: #1e8449; text-shadow: 0 2px 4px rgba(30, 132, 73, 0.2);">Bienvenue, <%= username %></div>
     </div>
     <div style="text-align: right;">
       <div style="color: #555; font-size: 1.2em; padding: 8px 15px; background: rgba(30, 132, 73, 0.1); border-radius: 20px; display: inline-block;"><i class="fa fa-user-shield" style="color: #27ae60;"></i> Rôle : Administrateur</div>
@@ -246,42 +246,42 @@
       <!-- Ligne 1 -->
       <div class="card">
         <i class="fa-solid fa-capsules"></i>
-        <h3>💊 Médicaments</h3>
+        <h3>Médicaments</h3>
         <p>Gérer les stocks et les infos médicaments</p>
-        <a href="liste-medicaments">📋 Gérer</a>
+        <a href="liste-medicaments">Gérer</a>
       </div>
       <div class="card">
         <i class="fa-solid fa-user-nurse"></i>
-        <h3>👥 Utilisateurs</h3>
+        <h3>Utilisateurs</h3>
         <p>Pharmaciens, assistants et admins</p>
-        <a href="utilisateurs?action=list">👤 Gérer</a>
+        <a href="utilisateurs?action=list">Gérer</a>
       </div>
       <div class="card">
         <i class="fa-solid fa-truck-medical"></i>
-        <h3>🚛 Fournisseurs</h3>
+        <h3>Fournisseurs</h3>
         <p>Laboratoires et distributeurs</p>
-        <a href="fournisseurs">🏭 Gérer</a>
+        <a href="fournisseurs">Gérer</a>
       </div>
       <div class="card">
         <i class="fa-solid fa-layer-group"></i>
-        <h3>🏷️ Catégories</h3>
+        <h3>Catégories</h3>
         <p>Classification pharmaceutique</p>
-        <a href="categories">📂 Gérer</a>
+        <a href="categories">Gérer</a>
       </div>
     </div>
     <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; column-gap: 70px; row-gap: 18px; margin-top: 10px;">
       <!-- Ligne 2 -->
       <div class="card">
         <i class="fa-solid fa-receipt"></i>
-        <h3>💰 Ventes</h3>
+        <h3>Ventes</h3>
         <p>Transactions et ordonnances</p>
-        <a href="ventes?action=list">💳 Consulter</a>
+        <a href="ventes?action=list">Consulter</a>
       </div>
       <div class="card">
         <i class="fa-solid fa-chart-pie"></i>
-        <h3>📊 Statistiques</h3>
+        <h3>Statistiques</h3>
         <p>Analyses et rapports</p>
-        <a href="statistiques.jsp">📈 Analyser</a>
+        <a href="statistiques.jsp">Analyser</a>
       </div>
     </div>
   </div>

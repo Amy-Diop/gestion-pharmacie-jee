@@ -99,7 +99,7 @@
 </head>
 <body>
 <div class="container">
-    <h1><i class="fa fa-history"></i> 📅 Historique des Ventes</h1>
+    <h1><i class="fa fa-history"></i> Historique des Ventes</h1>
 
     <div class="ventes-table">
         <table>
@@ -164,7 +164,7 @@
         </table>
     </div>
 
-    <a class="back-link" href="ventes?action=list">🔙 Retour Nouvelle Vente</a>
+    <a class="back-link" href="ventes?action=list">Retour Nouvelle Vente</a>
 </div>
 </body>
 </html>

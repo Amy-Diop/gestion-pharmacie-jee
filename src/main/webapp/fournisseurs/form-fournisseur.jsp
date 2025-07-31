@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 50%, #fafafa 100%);
+            background: linear-gradient(135deg, #e8f8f5 0%, #d1f2eb 50%, #fafafa 100%);
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             min-height: 100vh;
@@ -25,12 +25,12 @@
             margin: 40px auto;
             padding: 40px;
             border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(255, 152, 0, 0.15);
+            box-shadow: 0 15px 40px rgba(39, 174, 96, 0.15);
             max-width: 800px;
-            border-top: 6px solid #ff9800;
+            border-top: 6px solid #27ae60;
         }
         h2 {
-            background: linear-gradient(135deg, #ff9800, #f57c00);
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-align: center;
@@ -48,7 +48,7 @@
         .section-title {
             font-size: 1.3em;
             font-weight: bold;
-            color: #ff9800;
+            color: #27ae60;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -69,23 +69,23 @@
         }
         label {
             font-weight: 600;
-            color: #ff9800;
+            color: #27ae60;
             margin-bottom: 8px;
             font-size: 16px;
         }
         input, textarea {
             padding: 15px 18px;
-            border: 2px solid #ff9800;
+            border: 2px solid #27ae60;
             border-radius: 15px;
             font-size: 16px;
             background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(255, 152, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(39, 174, 96, 0.1);
         }
         input:focus, textarea:focus {
             outline: none;
-            border-color: #f57c00;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);
+            border-color: #2ecc71;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
             transform: translateY(-2px);
         }
         textarea {
@@ -93,7 +93,7 @@
             min-height: 80px;
         }
         .btn {
-            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: #fff;
             padding: 16px 0;
             font-weight: bold;
@@ -102,24 +102,24 @@
             cursor: pointer;
             width: 100%;
             font-size: 18px;
-            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 15px;
         }
         .btn:hover {
-            background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+            background: linear-gradient(135deg, #2ecc71 0%, #1e8449 100%);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
         }
         .back-link {
             display: block;
             margin-top: 20px;
             text-align: center;
             background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
-            color: #ff9800;
-            border: 3px solid #ff9800;
+            color: #27ae60;
+            border: 3px solid #27ae60;
             border-radius: 25px;
             padding: 12px 30px;
             font-weight: bold;
@@ -129,7 +129,7 @@
             letter-spacing: 0.5px;
         }
         .back-link:hover {
-            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: #fff;
             transform: translateY(-3px);
         }
@@ -143,8 +143,8 @@
 <body>
 <div class="container">
     <h2>
-        <i class="fa <%= estEdition ? "fa-edit" : "fa-plus" %>"></i>
-        <%= estEdition ? "✏️ Modifier" : "➕ Nouveau" %> Fournisseur
+        <i class="fa <%= estEdition ? "fa-edit" : "" %>"></i>
+        <%= estEdition ? "Modifier" : "Nouveau" %> Fournisseur
     </h2>
 
     <form action="<%= contextPath %>/fournisseurs?action=<%= action %>" method="post">
@@ -156,24 +156,24 @@
         <div class="form-section">
             <div class="section-title">
                 <i class="fa-solid fa-building"></i>
-                🏢 Informations Générales
+                Informations Générales
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="nom">🏷️ Nom du Fournisseur *</label>
+                    <label for="nom">Nom du Fournisseur </label>
                     <input type="text" id="nom" name="nom" required
                            value="<%= estEdition ? fournisseur.getNom() : "" %>"
                            placeholder="Nom de l'entreprise"/>
                 </div>
                 <div class="form-group">
-                    <label for="numeroImmatriculation">🆔 N° Immatriculation</label>
+                    <label for="numeroImmatriculation">N° Immatriculation</label>
                     <input type="text" id="numeroImmatriculation" name="numeroImmatriculation"
                            value="<%= estEdition && fournisseur.getNumeroImmatriculation() != null ? fournisseur.getNumeroImmatriculation() : "" %>"
                            placeholder="Numéro d'immatriculation"/>
                 </div>
             </div>
             <div class="form-group full-width">
-                <label for="adresse">📍 Adresse</label>
+                <label for="adresse">Adresse</label>
                 <textarea id="adresse" name="adresse" placeholder="Adresse complète du fournisseur..."><%= estEdition && fournisseur.getAdresse() != null ? fournisseur.getAdresse() : "" %></textarea>
             </div>
         </div>
@@ -182,17 +182,17 @@
         <div class="form-section">
             <div class="section-title">
                 <i class="fa-solid fa-phone"></i>
-                📞 Informations de Contact
+                Informations de Contact
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="telephone">📞 Téléphone</label>
+                    <label for="telephone">Téléphone</label>
                     <input type="tel" id="telephone" name="telephone"
                            value="<%= estEdition && fournisseur.getTelephone() != null ? fournisseur.getTelephone() : "" %>"
                            placeholder="+221 33 123 45 67"/>
                 </div>
                 <div class="form-group">
-                    <label for="email">📧 Email</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email"
                            value="<%= estEdition && fournisseur.getEmail() != null ? fournisseur.getEmail() : "" %>"
                            placeholder="contact@fournisseur.com"/>
@@ -204,25 +204,25 @@
         <div class="form-section">
             <div class="section-title">
                 <i class="fa-solid fa-handshake"></i>
-                💼 Informations Commerciales
+                Informations Commerciales
             </div>
             <div class="form-group">
-                <label for="produitsFournis">📦 Produits Fournis</label>
+                <label for="produitsFournis">Produits Fournis</label>
                 <textarea id="produitsFournis" name="produitsFournis" placeholder="Liste des produits ou catégories fournis..."><%= estEdition && fournisseur.getProduitsFournis() != null ? fournisseur.getProduitsFournis() : "" %></textarea>
             </div>
             <div class="form-group">
-                <label for="conditionsPaiement">💳 Conditions de Paiement</label>
+                <label for="conditionsPaiement">Conditions de Paiement</label>
                 <textarea id="conditionsPaiement" name="conditionsPaiement" placeholder="Conditions de paiement (délais, modalités...)..."><%= estEdition && fournisseur.getConditionsPaiement() != null ? fournisseur.getConditionsPaiement() : "" %></textarea>
             </div>
         </div>
 
         <button type="submit" class="btn">
-            <%= estEdition ? "✏️ Mettre à jour" : "➕ Ajouter" %> le Fournisseur
+            <%= estEdition ? "Mettre à jour" : "Ajouter" %> le Fournisseur
         </button>
     </form>
 
     <a href="<%= contextPath %>/fournisseurs?action=list" class="back-link">
-        <i class="fa fa-arrow-left"></i> 🔙 Retour à la liste
+        <i class="fa fa-arrow-left"></i> Retour à la liste
     </a>
 </div>
 </body>

@@ -208,12 +208,12 @@
 </head>
 <body>
 <div class="container">
-    <h1><i class="fa fa-truck"></i> 🚛 Liste des Fournisseurs</h1>
+    <h1><i class="fa fa-truck"></i> Liste des Fournisseurs</h1>
     
     <div class="toolbar">
         <div class="search-container">
             <form method="get" action="fournisseurs" class="search-form">
-                <input type="text" name="search" placeholder="🔍 Rechercher un fournisseur..." 
+                <input type="text" name="search" placeholder="Rechercher un fournisseur..." 
                        value="<%= request.getParameter("search") != null ? request.getParameter("search") : "" %>" 
                        class="search-input">
                 <button type="submit" class="search-btn">
@@ -228,7 +228,7 @@
         </div>
         <% if ("ADMIN".equals(role)) { %>
         <a href="fournisseurs?action=new" class="btn-nouveau">
-            <i class="fa fa-plus"></i> ➕ Ajouter Nouveau Fournisseur
+            <i class="fa "></i> Ajouter Nouveau Fournisseur
         </a>
         <% } %>
     </div>
@@ -278,12 +278,12 @@
                     <td>
                         <div class="actions">
                             <a href="fournisseurs?action=edit&id=<%= f.getId() %>" class="btn-action btn-modifier">
-                                ✏️ Modifier
+                                Modifier
                             </a>
                             <a href="fournisseurs?action=delete&id=<%= f.getId() %>" 
                                class="btn-action btn-supprimer"
                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce fournisseur ?');">
-                                🗑️ Supprimer
+                                Supprimer
                             </a>
                         </div>
                     </td>
@@ -347,11 +347,11 @@
     </div>
 
     <% if ("ADMIN".equals(role)) { %>
-        <a class="back-link" href="admin-dashboard.jsp">🔙 Retour Dashboard Admin</a>
+        <a class="back-link" href="admin-dashboard.jsp">Retour Dashboard Admin</a>
     <% } else if ("PHARMACIEN".equals(role)) { %>
-        <a class="back-link" href="pharmacien-dashboard.jsp">🔙 Retour Dashboard Pharmacien</a>
+        <a class="back-link" href="pharmacien-dashboard.jsp">Retour Dashboard Pharmacien</a>
     <% } else { %>
-        <a class="back-link" href="assistant-dashboard.jsp">🔙 Retour Dashboard Assistant</a>
+        <a class="back-link" href="assistant-dashboard.jsp">Retour Dashboard Assistant</a>
     <% } %>
 </div>
 </body>

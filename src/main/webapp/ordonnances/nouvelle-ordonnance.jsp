@@ -117,7 +117,7 @@
 </head>
 <body>
 <div class="container">
-    <h1><i class="fa fa-file-medical"></i> 📋 Nouvelle Ordonnance</h1>
+    <h1><i class="fa fa-file-medical"></i> Nouvelle Ordonnance</h1>
 
     <form method="post" action="ordonnances?action=create" id="ordonnanceForm">
         <div class="form-group">
@@ -175,7 +175,7 @@
         </button>
     </form>
 
-    <a class="back-link" href="ordonnances">🔙 Retour Liste Ordonnances</a>
+    <a class="back-link" href="ordonnances">Retour Liste Ordonnances</a>
 </div>
 
 <script>
